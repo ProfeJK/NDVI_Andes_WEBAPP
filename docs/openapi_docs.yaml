@@ -1,0 +1,33 @@
+openapi: 3.0.0
+info:
+  title: NDVI_ANDES API
+  version: "1.0"
+  description: API para análisis de imágenes NDVI y consulta al GPT NDVI_ANDES
+paths:
+  /analyze:
+    post:
+      summary: Analiza una imagen NDVI
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: Respuesta del análisis
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ndvi_promedio:
+                    type: number
+                    format: float
+                  respuesta:
+                    type: string
+        '500':
+          description: Error en el servidor
