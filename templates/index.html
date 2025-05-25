@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>NDVI_ANDES - Análisis de Imágenes</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>NDVI_ANDES - Web App de Análisis NDVI</h1>
+
+    <form id="uploadForm" method="post" enctype="multipart/form-data">
+        <label for="image">Sube una imagen NDVI (.tif, .jpg, .png):</label><br>
+        <input type="file" id="image" name="file" accept=".tif,.tiff,.jpg,.jpeg,.png" required><br><br>
+
+        <label for="crop_type">Tipo de cultivo:</label><br>
+        <input type="text" id="crop_type" name="crop_type" placeholder="Ej. arroz, maíz, tomate" required><br><br>
+
+        <label for="crop_stage">Etapa fenológica:</label><br>
+        <input type="text" id="crop_stage" name="crop_stage" placeholder="Ej. emergencia, floración, V6" required><br><br>
+
+        <button type="submit">Analizar imagen</button>
+    </form>
+
+    <div id="result">
+        <h3>Resultado:</h3>
+        <pre id="resultText"></pre>
+        <h4>Mapa binario NDVI (valores > 0.6):</h4>
+        <img id="ndviImage" style="max-width:100%; display:none;">
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
