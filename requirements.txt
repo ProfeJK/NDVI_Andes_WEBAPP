@@ -7,3 +7,6 @@ numpy
 python-multipart
 jinja2
 aiofiles
+numpy
+rasterio
+Pillow
